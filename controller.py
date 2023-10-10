@@ -47,3 +47,4 @@ def obter_opcao():
             return int(opcao)
         else:
             print("Por favor, digite um número inteiro válido.")
+            
