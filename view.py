@@ -3,12 +3,9 @@ from controller import*
 sair=True
 
 while sair == True:
-    print("Software de gerenciamento de tarefas")
-    print("1 -> Adicionar tarefa")
-    print("2 -> Excluir tarefa")
-    print("3 -> Listar tarefas")
-    print("4 -> Sair")
-    print("")
+    limpar()
+    print("\nSOFTWARE DE GERENCIAMENTO DE TAREFAS")
+    print(" [1]Adicionar tarefa\n [2] Excluir tarefa\n [3] Listar tarefas\n [00] Sair")
     opcao = obter_opcao()
 
     match opcao:
@@ -17,28 +14,26 @@ while sair == True:
             tarefa = input("Digite a tarefa: ")
             adicionartarefa=ControllerAdicionarTarefa(tarefa)
             parar()
-            limpar()
 
         case 2:
             limpar()
+            print("--| Lista de Tarefas |--")
             listarTarefa=ControllerListarTarefa()
-            excluir = (input("Digite o número da tarefa que deseja excluir: "))
+            excluir = (input("\nDigite o número da tarefa que deseja excluir: "))
             excluirTarefa=ControllerExcluirTarefa(excluir)
+            print("--| Nova Lista de Tarefas |--")
             listarTarefa=ControllerListarTarefa()
             parar()
-            limpar()
         case 3:
             limpar()
+            print("--| Lista de Tarefas |--")
             listarTarefa=ControllerListarTarefa()
             parar()
-            limpar()
 
             
-        case 4:
+        case 00:
             sair=False
         case _:
             limpar()
             print("Opção inválida")
-            print("")
             parar()
-            limpar()
