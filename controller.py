@@ -1,4 +1,5 @@
 from model import*
+from dao import*
 
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
