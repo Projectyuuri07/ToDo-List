@@ -18,5 +18,13 @@ class ToDO:
 
 
 
+    def listarTarefa(self):
+        return self.lista
 
+    def loadTarefas(self):
+        try:
+            with open(self.arquivo, "r") as file:
+                self.lista = [linha.strip().split(';')[1] for linha in file.readlines()]
+        except FileNotFoundError:
+            open(self.arquivo, "w").close()
 
