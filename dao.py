@@ -16,7 +16,25 @@ class ToDO:
             print(f"Erro ao adicionar tarefa: {e}")
             return False
 
+    def removeTarefa(self, index):
+        try:
+            with open(self.arquivo, "r") as file:
+                tarefas = file.readlines()
 
+            if 0 <= index < len(tarefas):
+                del tarefas[index]
+
+                with open(self.arquivo, "w") as file:
+                    for i, linha in enumerate(tarefas, start=1):
+                        file.write(f"{i};{linha.split(';', 1)[1]}")
+
+                self.loadTarefas()
+                return True
+            else:
+                raise ValueError("Número de tarefa a excluir fora do alcance")
+        except Exception as e:
+            print(f"Erro ao excluir tarefa: {e}")
+            return False
 
     def listarTarefa(self):
         return self.lista
