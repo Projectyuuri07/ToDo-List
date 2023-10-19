@@ -16,20 +16,6 @@ class ToDO:
             print(f"Erro ao adicionar tarefa: {e}")
             return False
 
-    def removeTarefa(self, excluir):
-        try:
-            with open(self.arquivo, "w") as file:
-                file.write("ID - Tarefa\n")
-                nova_lista = [tarefa for i, tarefa in enumerate(self.lista) if i != excluir]
-                for i, tarefa in enumerate(nova_lista):
-                    file.write(f"{i + 1} {tarefa}\n")
-            self.loadTarefas()
-            return True
-        except Exception as e:
-            print(f"Erro ao excluir tarefa: {e}")
-            return False
-        
-
     def listarTarefa(self):
         return self.lista
 
